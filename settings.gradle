@@ -1,6 +1,8 @@
+
 pluginManagement {
 	repositories {
 		maven { url 'http://artifactory-external.nf.hu:8081/artifactory/remote-repos'}
+		gradlePluginPortal()
 	}
 }
 	
