@@ -1,5 +1,9 @@
 package com.kotlin.demo.ch1
 
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
+
 @ExperimentalUnsignedTypes
 class VariableDemo {
 
@@ -16,13 +20,16 @@ class VariableDemo {
     val myULong:ULong = 18446744073709551615uL
     val myUInt:UInt = 4294967295u
     val myUShort:UShort = 65535u
-    var myUByte:UByte = 255u
+    val myUByte:UByte = 255u
 
-    val myUNumber = 42u
+    val myUNumber = 42u     // As wide as it can be...
 
     // explicit conversion
     val a:Byte = 127
     val b:Int = a.toInt()       // 'a' has to be converted to Int, even 'b' is wider
+
+    // Value by expression
+    val isThursday = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)).indexOf("Thursday") > -1
 
     // Strings
     var whatAmI:String = "I am Mutable"
@@ -58,6 +65,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 fun main() {
 
     val vDemo = VariableDemo()
+
+    println()
+    println("Is today Thursday? ${vDemo.isThursday}")
+
 
     println()
     println("Class type names")
